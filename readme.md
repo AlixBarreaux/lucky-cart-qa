@@ -6,13 +6,16 @@ Playwright TypeScript test suite for the Lucky Cart QA Engineer technical assess
 
 ```text
 luckycart-qa/
-├── bruno/  # Manual API test collections (Bruno)
+├── bruno/                  # Manual API test collections (Bruno)
 ├── helpers/
-│   └── cart.ts # Payload builders, API call helper, TypeScript interfaces
+│   └── cart.ts             # Payload builders, API call helper, TypeScript interfaces
 ├── tests/
-│   ├── cart-api.spec.ts  # API tests: authentication and cart eligibility
-│   └── game-flow.spec.ts # E2E test: eligible cart → game → win assertion
-├── bug_report.md # API bug report filed during assessment
+│   ├── cart-api.spec.ts    # API tests: authentication and cart eligibility
+│   └── game-flow.spec.ts   # E2E test: eligible cart → game → win assertion
+├── bug_report.md           # API bug report filed during assessment
+├── .dockerignore
+├── docker-compose.yml
+├── Dockerfile
 ├── playwright.config.ts
 ├── tsconfig.json
 └── .nvmrc
@@ -49,8 +52,14 @@ See `bug_report.md` for full details.
 
 ## Requirements
 
+### Local
+
 - Node.js 22 (see `.nvmrc`)
 - npm
+
+### Docker / Podman
+
+- Docker or Podman with Compose
 
 ## Setup
 
@@ -75,6 +84,18 @@ npm run test:game
 # Open HTML report after a test run
 npm run test:report
 ```
+
+## Running with Docker / Podman
+
+```bash
+# Build and run tests in container
+docker compose up --build
+
+# HTML report will be exported to ./playwright-report/
+```
+
+Tests run headless inside the container. The HTML report is mounted
+to your local `playwright-report/` directory after the run.
 
 ## Manual API Testing
 
