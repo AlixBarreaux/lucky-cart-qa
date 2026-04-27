@@ -7,6 +7,13 @@ import {
 } from "../helpers/cart";
 
 test.describe("Game Flow", () => {
+  test.beforeAll(() => {
+  // No global setup required for these tests.
+  // Each test generates a unique cartId via crypto.randomUUID()
+  // to avoid API response caching from cartId collisions.
+  // No teardown needed: the API provides no deletion endpoint.
+  });
+
   test("Eligible cart leads to a playable game that can be won", async ({ request, page }) => {
     // Send eligible cart and get game URL
     const cartId = generateCartId("game_flow");
@@ -30,5 +37,11 @@ test.describe("Game Flow", () => {
 
     // Assert win
     await expect(page.getByText("Congrats")).toBeVisible();
+  });
+
+  test.afterAll(() => {
+  // No teardown required.
+  // Carts submitted during tests persist in the API but do not
+  // affect future runs since each test uses a unique cartId.
   });
 });
