@@ -1,0 +1,22 @@
+{
+  "name": "lucky-cart-qa",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript test suite for Lucky Cart QA Engineer Technical Assessment",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/cart-api.spec.ts",
+    "test:game": "playwright test tests/game-flow.spec.ts",
+    "test:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlixBarreaux/lucky-cart-qa.git"
+  },
+  "author": "Alix Barreaux",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  }
+}
