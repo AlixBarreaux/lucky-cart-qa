@@ -16,9 +16,9 @@ Lucky Cart - QA Engineer Technical Assessment
 
 OS: Linux Mint 21.3 x86_64
 Kernel: 5.15.0-176-generic
-HTTP Clients: Bruno 3.3.0, terminal + curl  
+HTTP Clients: Bruno 3.3.0, terminal + curl
 API Endpoint: [Ticket](https://api.luckycart.com/cart/ticket)
-Method: POST  
+Method: POST
 
 ## Severity
 
@@ -56,7 +56,7 @@ Critical
 ## Actual Results
 
 | Scenario | Expected Status | Expected Body | Actual Status | Actual Body |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Wrong auth | 401 | `{"error": "Request signature is not valid.", "status": 401}` | 201 | `{}` |
 | Non-eligible cart | 200 | `{}` | 201 | `{}` |
 | Eligible cart | 200 | `{"ticket": "...", "baseDesktopUrl": "...", ...}` | 201 | `{}` |
