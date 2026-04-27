@@ -1,0 +1,28 @@
+info:
+  name: Eligible Cart
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: https://api.luckycart.com/cart/ticket
+  body:
+    type: json
+    data: |-
+      {
+          "cartId": "eligible_test_e32ef2ab81",
+          "totalAti": 60.00,
+          "shopperId": "eligible_test_e32ef2ab81",
+          "shopperEmail": "[eligible_test_e32ef2ab81@luckycart.com](mailto:eligible_test_e32ef2ab81@luckycart.com)",
+          "auth_v": "2.0",
+          "auth_key": "tVIoa1S6",
+          "auth_ts": "1640991600",
+          "auth_sign": "c723c649c389d68d8ab3feb4f53875f7f7eb87d27ec575f1f06a66e3dae4dc30"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
