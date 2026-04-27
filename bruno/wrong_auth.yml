@@ -1,0 +1,28 @@
+info:
+  name: Wrong Auth
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: https://api.luckycart.com/cart/ticket
+  body:
+    type: json
+    data: |-
+      {
+          "cartId": "wrong_auth_test_e32ef2ab81",
+          "totalAti": 60.00,
+          "shopperId": "wrong_auth_test_e32ef2ab81",
+          "shopperEmail": "wrong_auth_test_e32ef2ab81@luckycart.com",
+          "auth_v": "2.0",
+          "auth_key": "tVIoa1S6",
+          "auth_ts": "1640991600",
+          "auth_sign": "wrongsign"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
