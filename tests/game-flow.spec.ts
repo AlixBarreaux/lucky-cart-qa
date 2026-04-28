@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
 import {
-  EligibleBody,
   generateCartId,
   buildValidPayload,
   sendCart,
+  isEligibleBody,
 } from "../helpers/cart";
 
 test.describe("Game Flow", () => {
@@ -23,8 +23,10 @@ test.describe("Game Flow", () => {
     expect(status).toBe(200);
     expect(body).toHaveProperty("baseDesktopUrl");
 
-    const eligibleBody = body as EligibleBody;
-    const gameUrl = eligibleBody.baseDesktopUrl;
+    if (!isEligibleBody(body)) {
+      throw new Error("Expected eligible cart response but got non-eligible or error body");
+    }
+    const gameUrl = body.baseDesktopUrl;
 
     // Navigate to game home page
     await page.goto(gameUrl);
