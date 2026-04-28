@@ -32,10 +32,10 @@ test.describe("Game Flow", () => {
     await page.goto(gameUrl);
 
     // Click "Play now"
-    await page.locator('[data-screen-transition="game"]').click();
+    await page.locator("[data-screen-transition=\"game\"]").click();
 
     // Click "Spin the wheel!"
-    await page.locator('[data-template-config="screens.plugin.ctaButton"]').click();
+    await page.locator("[data-template-config=\"screens.plugin.ctaButton\"]").click();
 
     // Assert win
     await expect(page.getByText("Congrats")).toBeVisible();

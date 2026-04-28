@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Playwright TypeScript test suite for Lucky Cart QA Engineer Technical Assessment",
   "scripts": {
+    "lint": "eslint .",
     "test": "playwright test",
     "test:api": "playwright test tests/cart-api.spec.ts",
     "test:game": "playwright test tests/game-flow.spec.ts",
@@ -17,6 +18,9 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.3",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "@typescript-eslint/parser": "^8.59.1",
+    "eslint": "^10.2.1",
     "typescript": "^5.8.3"
   }
 }

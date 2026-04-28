@@ -16,6 +16,7 @@ luckycart-qa/
 ├── .dockerignore
 ├── docker-compose.yml
 ├── Dockerfile
+├── eslint.config.mjs
 ├── playwright.config.ts
 ├── tsconfig.json
 └── .nvmrc
@@ -97,6 +98,12 @@ docker compose up --build
 Tests run headless inside the container. The HTML report is mounted
 to your local `playwright-report/` directory after the run.
 
+## Running Linter
+
+```bash
+npm run lint
+```
+
 ## Manual API Testing
 
 Bruno collections are included in the [bruno](./bruno/) directory covering all three scenarios:
@@ -113,3 +120,4 @@ Open with [Bruno](https://www.usebruno.com/).
   between test runs or with existing API data
 - Tests are written against the assessment specification
 - Browser: Chromium (headless)
+- ESLint enforces TypeScript strict rules. Run `npm run lint` before committing
