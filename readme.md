@@ -6,6 +6,9 @@ Playwright TypeScript test suite for the Lucky Cart QA Engineer technical assess
 
 ```text
 luckycart-qa/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── bruno/                  # Manual API test collections (Bruno)
 ├── helpers/
 │   └── cart.ts             # Payload builders, API call helper, TypeScript interfaces
@@ -49,7 +52,7 @@ This was reported to the Lucky Cart QA team and confirmed to be intentional.
 The API is deliberately unavailable as part of the assessment. Tests are written against the specification,
 not the current API behavior.
 
-See `bug_report.md` for full details.
+See [bug_report.md](./bug_report.md) for full details.
 
 ## Requirements
 
@@ -103,6 +106,14 @@ to your local `playwright-report/` directory after the run.
 ```bash
 npm run lint
 ```
+
+## CI
+
+GitHub Actions runs ESLint automatically on every push and pull request targeting `main`.
+
+The test suite is not run in CI.
+The Cart API is intentionally unavailable as part of the assessment.
+See [bug_report.md](./bug_report.md) for more details.
 
 ## Manual API Testing
 
