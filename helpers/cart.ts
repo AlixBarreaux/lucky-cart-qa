@@ -5,10 +5,10 @@ const CART_API_URL = "https://api.luckycart.com/cart/ticket";
 const SHOPPER_EMAIL_DOMAIN = "@luckycart.com";
 
 interface AuthParams {
-  auth_v: string;
-  auth_key: string;
-  auth_ts: string;
-  auth_sign: string;
+  readonly auth_v: string;
+  readonly auth_key: string;
+  readonly auth_ts: string;
+  readonly auth_sign: string;
 }
 
 interface CartPayload extends AuthParams {
@@ -19,23 +19,27 @@ interface CartPayload extends AuthParams {
 }
 
 interface ErrorBody {
-  error: string;
-  status: number;
+  readonly error: string;
+  readonly status: number;
 }
 
 interface NonEligibleBody {}
 
 export interface EligibleBody {
-  ticket: string;
-  mobileUrl: string;
-  tabletUrl: string;
-  desktopUrl: string;
-  baseMobileUrl: string;
-  baseTabletUrl: string;
-  baseDesktopUrl: string;
+  readonly ticket: string;
+  readonly mobileUrl: string;
+  readonly tabletUrl: string;
+  readonly desktopUrl: string;
+  readonly baseMobileUrl: string;
+  readonly baseTabletUrl: string;
+  readonly baseDesktopUrl: string;
 }
 
 type CartResponseBody = ErrorBody | NonEligibleBody | EligibleBody;
+
+export function isEligibleBody(body: CartResponseBody): body is EligibleBody {
+  return "baseDesktopUrl" in body;
+}
 
 interface CartResponse {
   status: number;
@@ -87,7 +91,7 @@ export async function sendCart(request: APIRequestContext, payload: CartPayload)
     headers: { "Content-Type": "application/json" },
   });
 
-  const body = await response.json();
+  const body: CartResponseBody = await response.json();
 
   return { status: response.status(), body };
 }
