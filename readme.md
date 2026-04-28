@@ -125,6 +125,15 @@ Bruno collections are included in the [bruno](./bruno/) directory covering all t
 
 Open with [Bruno](https://www.usebruno.com/).
 
+## Recommended Extensions
+
+For VSCode / VSCodium:
+
+- [ESLint](https://open-vsx.org/extension/dbaeumer/vscode-eslint) :
+Inline lint errors as you type
+- [EditorConfig](https://open-vsx.org/extension/EditorConfig/EditorConfig) :
+Consistent formatting across editors
+
 ## Notes
 
 - Cart IDs are generated using `crypto.randomUUID()` to guarantee no collisions
