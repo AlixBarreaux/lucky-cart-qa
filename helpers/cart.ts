@@ -1,4 +1,4 @@
-import { APIRequestContext } from "@playwright/test";
+import type { APIRequestContext } from "@playwright/test";
 import { randomUUID } from "crypto";
 
 const CART_API_URL = "https://api.luckycart.com/cart/ticket";
