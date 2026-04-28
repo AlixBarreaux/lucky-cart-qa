@@ -16,7 +16,7 @@
   "author": "Alix Barreaux",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.15.3",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
